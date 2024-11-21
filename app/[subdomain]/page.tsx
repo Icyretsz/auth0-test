@@ -1,16 +1,16 @@
 'use client'
 
 import {useParams} from "next/navigation";
+import {useUser} from "@auth0/nextjs-auth0/client";
 
 
 const Page = () => {
 
-  const params = useParams();
-  const tenant = params.subdomain;
+  const { user, error, isLoading} = useUser()
 
   return (
     <div>
-      Welcome {tenant}
+      Welcome {user?.name}
     </div>
   );
 };
