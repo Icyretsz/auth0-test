@@ -18,7 +18,7 @@ export default async function middleware(req: NextRequest) {
     const auth0Url = new URL(`${process.env.AUTH0_ISSUER_BASE_URL}/authorize`);
     auth0Url.searchParams.append('client_id', `${process.env.AUTH0_CLIENT_ID}`);
     auth0Url.searchParams.append('response_type', 'code');
-    auth0Url.searchParams.append('redirect_uri', `http://${hostHeader}/api/auth/callback`);
+    auth0Url.searchParams.append('redirect_uri', `https://${hostHeader}/api/auth/callback`);
     auth0Url.searchParams.append('scope', 'openid profile email');
     auth0Url.searchParams.append('organization', `${orgName}`);
 
